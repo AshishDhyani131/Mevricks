@@ -42,8 +42,7 @@ import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
-import SignIn from "layouts/authentication/sign-in";
-import SignUp from "layouts/authentication/sign-up";
+import Settings from "layouts/settings/settings";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -59,59 +58,54 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
-    key: "tables",
-    icon: <Icon fontSize="small">table_view</Icon>,
+    name: "Network",
+    key: "network",
+    icon: <Icon fontSize="small">sensors</Icon>,
     route: "/tables",
     component: <Tables />,
   },
   {
     type: "collapse",
-    name: "Billing",
-    key: "billing",
-    icon: <Icon fontSize="small">receipt_long</Icon>,
+    name: "Analytics",
+    key: "analytics",
+    icon: <Icon fontSize="small">analytics</Icon>,
     route: "/billing",
     component: <Billing />,
   },
   {
     type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
+    name: "Business",
+    key: "business",
+    icon: <Icon fontSize="small">business</Icon>,
     route: "/rtl",
     component: <RTL />,
   },
   {
     type: "collapse",
-    name: "Notifications",
-    key: "notifications",
+    name: "Marketing",
+    key: "marketing",
     icon: <Icon fontSize="small">notifications</Icon>,
     route: "/notifications",
     component: <Notifications />,
   },
   {
     type: "collapse",
-    name: "Profile",
-    key: "profile",
+    name: "Support",
+    key: "support",
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profile",
     component: <Profile />,
   },
   {
-    type: "collapse",
-    name: "Sign In",
-    key: "sign-in",
-    icon: <Icon fontSize="small">login</Icon>,
-    route: "/authentication/sign-in",
-    component: <SignIn />,
+    type: "divider",
   },
   {
     type: "collapse",
-    name: "Sign Up",
-    key: "sign-up",
-    icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/authentication/sign-up",
-    component: <SignUp />,
+    name: "Settings",
+    key: "settings",
+    icon: <Icon fontSize="small">settings</Icon>,
+    route: "/settings",
+    component: <Settings />,
   },
 ];
 

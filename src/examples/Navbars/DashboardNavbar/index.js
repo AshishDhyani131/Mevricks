@@ -27,11 +27,16 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
-
+import Divider from "@mui/material/Divider";
+import TextField from "@mui/material/TextField";
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDInput from "components/MDInput";
-
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 // Material Dashboard 2 React example components
 import Breadcrumbs from "examples/Breadcrumbs";
 import NotificationItem from "examples/Items/NotificationItem";
@@ -90,7 +95,9 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
   const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
   const handleCloseMenu = () => setOpenMenu(false);
-
+  function handleChange() {
+    console.log("Inside handle Change");
+  }
   // Render the notifications menu
   const renderMenu = () => (
     <Menu
@@ -136,7 +143,61 @@ function DashboardNavbar({ absolute, light, isMini }) {
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
             <MDBox pr={1}>
-              <MDInput label="Search here" />
+              {/* <MDInput label="Search here" /> */}
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value=""
+                  label="Age"
+                  onChange={handleChange}
+                  sx={{ px: "4px", py: "12px" }}
+                >
+                  <ul>
+                    <li>
+                      <Link href="#">MSP</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Global</Link>
+                    </li>
+                    <Divider component="li"></Divider>
+                  </ul>
+                  <div style={{ display: "flex", gap: "1rem" }}>
+                    <div className="">
+                      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                      <ul style={{ padding: "0 12px", listStyleType: "none" }}>
+                        <li>Customer 1</li>
+                        <li>Customer 2</li>
+                        <li>Customer 3</li>
+                      </ul>
+                    </div>
+                    <Divider orientation="vertical" variant="middle" flexItem></Divider>
+                    <div className="">
+                      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                      <ul
+                        style={{
+                          padding: "0 12px",
+                          listStyleType: "none",
+                          maxHeight: "100px",
+                          overflowY: "scroll",
+                          overflowX: "hidden",
+                        }}
+                      >
+                        <li>Site 1</li>
+                        <li>Site 2</li>
+                        <li>Site 3</li>
+                        <li>Site 4</li>
+                        <li>Site 5</li>
+                        <li>Site 6</li>
+                        <li>Site 7</li>
+                      </ul>
+                      <Divider></Divider>
+                      <span style={{ padding: "0 16px" }}>Hotspot Manager</span>
+                    </div>
+                  </div>
+                </Select>
+              </FormControl>
             </MDBox>
             <MDBox color={light ? "white" : "inherit"}>
               <Link to="/authentication/sign-in/basic">
